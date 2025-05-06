@@ -42,7 +42,6 @@ void setup(){
 
 void draw(){
   background(255); 
-  print("teste");
   if (botaoRet.isClicked()) {
     println("Botão Retangular clicado!");
     // Adicione aqui o que deve acontecer quando o botão retangular for clicado
