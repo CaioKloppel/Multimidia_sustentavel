@@ -8,6 +8,14 @@ class Retangulo extends Forma {
     this.tamanhoB = tamanhoA/2;
   }
   
+  public float getTamanhoA(){
+    return tamanhoA;
+  }
+  
+  public float getTamanhoB(){
+    return tamanhoB;
+  }
+  
   public void invertTamanhos(){
     float buffer = tamanhoA;
     tamanhoA = tamanhoB;
