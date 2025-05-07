@@ -38,10 +38,38 @@ void setup(){
   triangulo.setTamanho(300);
   triangulo.setXy(200, 400);
   triangulo.setCor(224, 36, 36);
+  
+  
+   botaoCirc.setStringForma("teste");
+   botaoCirc.setCorTexto(255,0,0);
+   botaoCirc.setFonte("Arial",10);
 }
 
 void draw(){
   background(255); 
+
   if (x > 0) {triangulo.displayGirando(0.02);} else {triangulo.display();}
   x--;
+
+  if (botaoRet.isClicked()) {
+    println("Botão Retangular clicado!");
+    // Adicione aqui o que deve acontecer quando o botão retangular for clicado
+  }
+  
+  if (botaoCirc.isClicked()) {
+    println("Botão Circular clicado!");
+    // Adicione aqui o que deve acontecer quando o botão circular for clicado
+  }
+  //coloquei pra mostrar q as outras formas não herdam o fill do texto
+  circle(10,10,10);
+  
+  botaoRet.display();
+  botaoCirc.display();
+  botaoCirc.moveX(1);
+  botaoRet.moveX(1);
+  botaoCirc.textoForma();
+  
+  //coloquei pra mostrar q as outras formas não herdam o fill do texto
+  circle(10,30,10);
+
 }
