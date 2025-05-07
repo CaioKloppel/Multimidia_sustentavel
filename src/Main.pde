@@ -42,18 +42,6 @@ void setup(){
 
 void draw(){
   background(255); 
-  if (botaoRet.isClicked()) {
-    println("Botão Retangular clicado!");
-    // Adicione aqui o que deve acontecer quando o botão retangular for clicado
-  }
-  
-  if (botaoCirc.isClicked()) {
-    println("Botão Circular clicado!");
-    // Adicione aqui o que deve acontecer quando o botão circular for clicado
-  }
-  
-  botaoRet.display();
-  botaoCirc.display();
-  botaoCirc.moveX(1);
-  botaoRet.moveX(1);
+  if (x > 0) {triangulo.displayGirando(0.02);} else {triangulo.display();}
+  x--;
 }
