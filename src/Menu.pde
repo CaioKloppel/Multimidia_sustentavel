@@ -1,3 +1,9 @@
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer menuMusic;
+
+
 class Menu {
   BotaoCircular botaoIniciar;
   Retangulo texto;
@@ -5,7 +11,13 @@ class Menu {
   PImage imagemFundo = loadImage("Images/imagemMenu.png");
   PImage imagemBotaoIniciar = loadImage("images/botaocircular.png");
   
-  Menu(){
+  Menu(PApplet parent){
+    minim = new Minim(parent);
+    menuMusic = minim.loadFile("data/somMenu.mp3");
+    menuMusic.loop();
+    
+    
+    
     botaoIniciar = new BotaoCircular(imagemBotaoIniciar);
     botaoIniciar.setTamanho(300);
     botaoIniciar.setXy(width/2, 600);
@@ -18,7 +30,10 @@ class Menu {
   }
   
   public boolean clicouIniciar() {
-    if (botaoIniciar.isClicked()) clicou = true;
+    if (botaoIniciar.isClicked()) {
+      clicou = true;
+      menuMusic.pause();
+    }
     return clicou;
   }
 }

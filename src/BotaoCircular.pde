@@ -1,5 +1,5 @@
 class BotaoCircular extends Circulo {
-  PImage img;
+  PImage img; 
   PImage imgMasked; // imagem já mascarada
 
   BotaoCircular(PImage img) {
