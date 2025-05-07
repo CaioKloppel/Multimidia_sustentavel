@@ -12,6 +12,7 @@ class Triangulo extends Forma {
       getX() - getTamanho()/2, getY() + (h/3),
       getX() + getTamanho()/2, getY() + (h/3)
     );
+    if (getStringForma() != null) textoForma();
   }
   
   public void displayGirando(float velocidade) {
@@ -25,6 +26,10 @@ class Triangulo extends Forma {
       -getTamanho()/2, h/3,
       getTamanho()/2, h/3
     );
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
   
@@ -40,6 +45,10 @@ class Triangulo extends Forma {
       -getTamanho()/2, h/3,
       getTamanho()/2, h/3
     );
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
 }

@@ -10,6 +10,7 @@ class BotaoRetangular extends Retangulo {
     if (img != null) {
       imageMode(CENTER);
       image(img, getX(), getY(), getTamanhoA(), getTamanhoB());
+      if (getStringForma() != null) textoForma();
     } else {
       super.display();
     }

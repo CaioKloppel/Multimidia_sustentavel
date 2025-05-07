@@ -37,6 +37,7 @@ class BotaoCircular extends Circulo {
 
       imageMode(CENTER);
       image(imgMasked, getX(), getY());
+      if (getStringForma() != null) textoForma();
     } else {
       super.display();
     }

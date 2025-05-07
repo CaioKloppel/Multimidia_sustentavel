@@ -8,6 +8,7 @@ class Quadrado extends Forma {
     fill(getCor());
     rectMode(CENTER);
     rect(getX(), getY(), getTamanho(), getTamanho()); 
+    if (getStringForma() != null) textoForma();
   }
   
   public void displayGirando(float velocidade){
@@ -16,6 +17,10 @@ class Quadrado extends Forma {
     fill(getCor());
     rectMode(CENTER);
     rect(0, 0, getTamanho(), getTamanho()); 
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
   
@@ -26,6 +31,10 @@ class Quadrado extends Forma {
     translate(getX(), getY());
     rotate(getRotation());
     rect(0, 0, getTamanho(), getTamanho()); 
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
 }

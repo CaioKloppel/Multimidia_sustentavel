@@ -7,6 +7,7 @@ class Circulo extends Forma{
     fill(getCor());
     ellipseMode(CENTER);
     ellipse(getX(), getY(), getTamanho(), getTamanho()); 
+    if (getStringForma() != null) textoForma();
   }
   
   public void displayGirando(float velocidade){
@@ -15,6 +16,10 @@ class Circulo extends Forma{
     fill(getCor());
     ellipseMode(CENTER);
     ellipse(0, 0, getTamanho(), getTamanho()); 
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
   
@@ -24,7 +29,11 @@ class Circulo extends Forma{
     ellipseMode(CENTER);
     translate(getX(), getY());
     rotate(getRotation());
-    ellipse(0, 0, getTamanho(), getTamanho()); 
+    ellipse(0, 0, getTamanho(), getTamanho());
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
   

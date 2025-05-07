@@ -4,6 +4,7 @@ abstract class Forma {
   private color cor;
   private float rotation = 0;
   private String stringForma;
+  private float stringX = -1, stringY = -1;
   private color corTexto;
   private PFont fonte; 
 
@@ -55,6 +56,15 @@ abstract class Forma {
     setXy(getX(), getY() + velocidade);
   }
   
+  public void setStringXy(float x, float y){
+    stringX = x;
+    stringY = y;
+  }
+  
+  public void semBorda(){
+    noStroke();
+  }
+  
   
     // Set corTexto
     public void setCorTexto(int rT, int gT, int bT) {
@@ -80,20 +90,21 @@ abstract class Forma {
 
  // set font
     public void setFonte(String nomeFonte, int tamanhoFonte) {
-      fonte = createFont(nomeFonte, tamanhoFonte); 
+       fonte = createFont(nomeFonte, tamanhoFonte); 
   }
 
   //get font
-  public PFont getFont() {
-        return this.fonte;
+    public PFont getFont() {
+       return this.fonte;
   }
 
   // method para exibir texto
     public void textoForma() {
-        fill(corTexto);
-        text(getStringForma(), x, y);
-        textFont(fonte);
-        noFill();
+       fill(corTexto);
+       textAlign(CENTER, CENTER);
+       if (stringX == -1) text(stringForma, x, y); else text(stringForma, stringX, stringY);
+       textFont(fonte);
+       noFill();
   }
     
   

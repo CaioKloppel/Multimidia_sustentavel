@@ -30,6 +30,7 @@ class Retangulo extends Forma {
     fill(getCor());
     rectMode(CENTER);
     rect(getX(), getY(), tamanhoA, tamanhoB); 
+    if (getStringForma() != null) textoForma();
   }
   
   public void displayGirando(float velocidade){
@@ -38,6 +39,10 @@ class Retangulo extends Forma {
     fill(getCor());
     rectMode(CENTER);
     rect(0, 0, tamanhoA, tamanhoB); 
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
   
@@ -48,6 +53,10 @@ class Retangulo extends Forma {
     translate(getX(), getY());
     rotate(getRotation());
     rect(0, 0, tamanhoA, tamanhoB); 
+    if (getStringForma() != null) {
+      setStringXy(0,0);
+      textoForma();
+    }
     popMatrix();
   }
 }
