@@ -11,9 +11,3 @@ void draw(){
   background(255); 
   if (!menu.clicouIniciar()) menu.display();
 }
-
-void stop(){
-  menuMusic.close();
-  minim.stop();
-  super.stop();
-}

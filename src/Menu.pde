@@ -32,8 +32,12 @@ class Menu {
   public boolean clicouIniciar() {
     if (botaoIniciar.isClicked()) {
       clicou = true;
-      menuMusic.pause();
+      stopMusic();
     }
     return clicou;
+  }
+  private void stopMusic(){
+    menuMusic.close();
+    minim.stop();
   }
 }
