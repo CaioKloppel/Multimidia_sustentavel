@@ -5,6 +5,7 @@ void setup(){
   background(255);
   
   menu = new Menu(this);
+  
 }
 
 void draw(){
