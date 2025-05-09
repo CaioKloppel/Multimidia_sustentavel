@@ -8,7 +8,7 @@ class Menu {
   BotaoCircular botaoIniciar;
   Retangulo texto;
   boolean clicou;
-  PImage imagemFundo = loadImage("Images/imagemMenu.png");
+  PImage imagemFundo = loadImage("Images/imagemMenuTeste.png");
   PImage imagemBotaoIniciar = loadImage("images/botaocircular.png");
   
   Menu(PApplet parent){
