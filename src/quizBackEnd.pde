@@ -38,7 +38,7 @@ public class QuizBackEnd {
     this.alternativaB = alternativaB;
     this.alternativaC = alternativaC;
     this.alternativaD = alternativaD;
-    setLetraAlternativaCorreta(letraCorreta); 
+    setLetraAlternativaCorreta(letraCorreta);
   }
 
   // Verificador da resposta
