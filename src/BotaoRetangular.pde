@@ -5,16 +5,26 @@ class BotaoRetangular extends Retangulo {
     this.img = img; 
   }
 
-  @Override
-  public void display() {
-    if (img != null) {
-      imageMode(CENTER);
-      image(img, getX(), getY(), getTamanhoA(), getTamanhoB());
-      if (getStringForma() != null) textoForma();
-    } else {
-      super.display();
-    }
+ @Override
+public void display() {
+  if (img != null) {
+    imageMode(CENTER);
+    boolean mouseOver = mouseX > (getX() - getTamanhoA()/2) && 
+                       mouseX < (getX() + getTamanhoA()/2) && 
+                       mouseY > (getY() - getTamanhoB()/2) && 
+                       mouseY < (getY() + getTamanhoB()/2);
+    
+    if (mouseOver) tint(180); 
+    else tint(255); 
+    
+    image(img, getX(), getY(), getTamanhoA(), getTamanhoB());
+    noTint(); 
+    
+    if (getStringForma() != null) textoForma();
+  } else {
+    super.display();
   }
+}
   
   public boolean isClicked() {
     float metadeLargura = getTamanhoA() / 2;

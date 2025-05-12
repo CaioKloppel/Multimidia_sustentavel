@@ -36,7 +36,17 @@ class BotaoCircular extends Circulo {
       }
 
       imageMode(CENTER);
+      boolean mouseOver = mouseX > (getX() - getTamanho()/2) && 
+                       mouseX < (getX() + getTamanho()/2) && 
+                       mouseY > (getY() - getTamanho()/2) && 
+                       mouseY < (getY() + getTamanho()/2);
+    
+    if (mouseOver) tint(180); 
+    else tint(255);
+    
       image(imgMasked, getX(), getY());
+      noTint();
+      
       if (getStringForma() != null) textoForma();
     } else {
       super.display();
