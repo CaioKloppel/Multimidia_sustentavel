@@ -1,12 +1,9 @@
 import ddf.minim.*;
 
-Minim minim;
-AudioPlayer menuMusic;
-
-
 class Menu {
+  Minim minim;
+  AudioPlayer menuMusic;
   BotaoCircular botaoIniciar;
-  Retangulo texto;
   boolean clicou;
   PImage imagemFundo = loadImage("Images/imagemMenuTeste.png");
   PImage imagemBotaoIniciar = loadImage("images/botaocircular.png");
@@ -20,7 +17,7 @@ class Menu {
     
     botaoIniciar = new BotaoCircular(imagemBotaoIniciar);
     botaoIniciar.setTamanho(300);
-    botaoIniciar.setXy(width/2, 600);
+    botaoIniciar.setXy(width/2.1, height/2);
     imagemFundo.resize(width,height);
   }
   

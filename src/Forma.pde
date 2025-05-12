@@ -67,8 +67,8 @@ abstract class Forma {
   
   
     // Set corTexto
-    public void setCorTexto(int rT, int gT, int bT) {
-        this.corTexto = color(rT, gT, bT);
+    public void setCorTexto(color cor) {
+        this.corTexto = cor;
   }
 
     // GetcorTexto

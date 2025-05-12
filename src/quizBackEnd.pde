@@ -1,53 +1,44 @@
 public class QuizBackEnd {
   private int numeroQuestao;
-  private String letraAlternativaCorreta;
+  private String alternativaCorreta;
   private String alternativaA;
   private String alternativaB;
   private String alternativaC;
   private String alternativaD;
-
-  // Set letra alternativa correta
-  public void setLetraAlternativaCorreta(String letra) {
-    if (letra.equals("A") || letra.equals("B") || letra.equals("C") || letra.equals("D")) {
-      letraAlternativaCorreta = letra;
-    }
-  }
-
-  // Set numero questao
-  public void setNumeroQuestao(int numeroQuestao) {
-    this.numeroQuestao = numeroQuestao;
-  }
-
-  // Set texto alternativa
-  public void setTextoAlternativa(String letraAlternativa, String textoAlternativa) {
-    if (letraAlternativa.equals("A")) {
-      alternativaA = textoAlternativa;
-    } else if (letraAlternativa.equals("B")) {
-      alternativaB = textoAlternativa;
-    } else if (letraAlternativa.equals("C")) {
-      alternativaC = textoAlternativa;
-    } else if (letraAlternativa.equals("D")) {
-      alternativaD = textoAlternativa;
-    }
-  }
-
+  
+  
   // Method p/ config tds alternativas e o num da questão
-  public void configurarQuestao(int numeroQuestao, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String letraCorreta) {
+  public QuizBackEnd(int numeroQuestao, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaCorreta) {
     this.numeroQuestao = numeroQuestao;
     this.alternativaA = alternativaA;
     this.alternativaB = alternativaB;
     this.alternativaC = alternativaC;
     this.alternativaD = alternativaD;
-    setLetraAlternativaCorreta(letraCorreta);
+    this.alternativaCorreta = alternativaCorreta;
   }
 
-  // Verificador da resposta
-  public boolean checarResposta(String respostaUsuario) {
-    return respostaUsuario.equals(letraAlternativaCorreta);
+  public String getAlternativaCorreta() {
+    return alternativaCorreta;
   }
 
-  // Get alternativa correta
-  public String obterAlternativaCorreta() {
-    return letraAlternativaCorreta;
+
+  public String getAlternativaA(){
+    return alternativaA;
+  }
+
+  public String getAlternativaB(){
+    return alternativaB;
+  }
+  
+  public String getAlternativaC(){
+    return alternativaC;
+  }
+  
+  public String getAlternativaD(){
+    return alternativaD;
+  }
+  
+  public int getNumeroQuestao(){
+    return numeroQuestao;
   }
 }
