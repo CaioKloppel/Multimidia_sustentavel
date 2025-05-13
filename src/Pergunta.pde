@@ -39,10 +39,10 @@ class Pergunta{
     botaoPergunta3.setStringForma(quiz.getAlternativaC());
     botaoPergunta4.setStringForma(quiz.getAlternativaD());
     
-    botaoPergunta1.setFonte("Arial", 30);
-    botaoPergunta2.setFonte("Arial", 30);
-    botaoPergunta3.setFonte("Arial", 30);
-    botaoPergunta4.setFonte("Arial", 30);
+    botaoPergunta1.setFonte("Myanmar Text", 15);
+    botaoPergunta2.setFonte("Myanmar Text", 15);
+    botaoPergunta3.setFonte("Myanmar Text", 15);
+    botaoPergunta4.setFonte("Myanmar Text", 15);
     
     botaoPergunta1.setCorTexto(corTexto);
     botaoPergunta2.setCorTexto(corTexto);
