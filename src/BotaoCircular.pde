@@ -1,6 +1,7 @@
 class BotaoCircular extends Circulo {
   PImage img; 
-  PImage imgMasked; // imagem já mascarada
+  PImage imgMasked; 
+  boolean clicou;
 
   BotaoCircular(PImage img) {
     this.img = img;
@@ -37,9 +38,9 @@ class BotaoCircular extends Circulo {
 
       imageMode(CENTER);
       boolean mouseOver = mouseX > (getX() - getTamanho()/2) && 
-                       mouseX < (getX() + getTamanho()/2) && 
-                       mouseY > (getY() - getTamanho()/2) && 
-                       mouseY < (getY() + getTamanho()/2);
+      mouseX < (getX() + getTamanho()/2) && 
+      mouseY > (getY() - getTamanho()/2) && 
+      mouseY < (getY() + getTamanho()/2);
     
     if (mouseOver) tint(180); 
     else tint(255);
@@ -55,6 +56,13 @@ class BotaoCircular extends Circulo {
 
   public boolean isClicked() {
     float distancia = dist(mouseX, mouseY, getX(), getY());
-    return mousePressed && distancia <= getTamanho()/2;
+    if (mousePressed && distancia <= getTamanho()/2){
+      clicou = true;
+    }
+    if (clicou){
+      if (!mousePressed && distancia <= getTamanho()/2) {clicou = false; return true;}
+    }
+    if (!mousePressed) clicou = false;
+    return false;
   }
 }

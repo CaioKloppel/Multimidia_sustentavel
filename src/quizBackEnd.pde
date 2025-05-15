@@ -1,5 +1,4 @@
 public class QuizBackEnd {
-  private int numeroQuestao;
   private String alternativaCorreta;
   private String alternativaA;
   private String alternativaB;
@@ -8,8 +7,7 @@ public class QuizBackEnd {
   
   
   // Method p/ config tds alternativas e o num da questão
-  public QuizBackEnd(int numeroQuestao, String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaCorreta) {
-    this.numeroQuestao = numeroQuestao;
+  public QuizBackEnd(String alternativaA, String alternativaB, String alternativaC, String alternativaD, String alternativaCorreta) {
     this.alternativaA = alternativaA;
     this.alternativaB = alternativaB;
     this.alternativaC = alternativaC;
@@ -36,9 +34,5 @@ public class QuizBackEnd {
   
   public String getAlternativaD(){
     return alternativaD;
-  }
-  
-  public int getNumeroQuestao(){
-    return numeroQuestao;
   }
 }

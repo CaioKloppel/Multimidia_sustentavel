@@ -16,7 +16,7 @@ class Menu {
     
     
     botaoIniciar = new BotaoCircular(imagemBotaoIniciar);
-    botaoIniciar.setTamanho(300);
+    botaoIniciar.setTamanho(width/6);
     botaoIniciar.setXy(width/2.1, height/2);
     imagemFundo.resize(width,height);
   }
@@ -27,6 +27,7 @@ class Menu {
   }
   
   public boolean clicouIniciar() {
+    clicou = false;
     if (botaoIniciar.isClicked()) {
       clicou = true;
       stopMusic();
