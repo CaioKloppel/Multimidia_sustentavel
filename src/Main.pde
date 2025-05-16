@@ -1,6 +1,6 @@
 import processing.video.*;
 
-Movie movie = new Movie(this, "videos/parabens.mp4");
+Movie movie;
 
 Menu menu;
 //quiz
@@ -166,9 +166,7 @@ void setup(){
   );
   pergunta10= new Pergunta(imagemFundoPergunta10, imagemBotaoQuestoes, pontuacao, quiz10, #333333);
   
-  movie = new Movie(this, "videos/parabens.mp4");
-  
-  telaFinal = new TelaFinal(pontuacao, movie);
+  movie = new Movie(this, "C:\\Users\\caiok\\Videos\\Videofinal.mp4");
   
   estado = 0;
 }
@@ -372,12 +370,22 @@ void draw(){
     break;
 
   case 21:
+    if (telaFinal ==null){
+    telaFinal = new TelaFinal(pontuacao, movie);
+    telaFinal.initVideo();
+    }
+  
     telaFinal.display();
 
   if (telaFinal.clicouContinuar()) {
+    telaFinal = null;
     pontuacao.reset();    
     estado = 0;           
-  }
+    }
   break;
+  }
 }
-}
+
+  void movieEvent(Movie m) {
+    m.read();
+  }

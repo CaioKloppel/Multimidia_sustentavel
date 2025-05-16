@@ -10,7 +10,7 @@ class Menu {
   
   Menu(PApplet parent){
     minim = new Minim(parent);
-    menuMusic = minim.loadFile("data/somMenu.mp3");
+    menuMusic = minim.loadFile("somMenu.mp3");
     menuMusic.loop();
     
     

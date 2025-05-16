@@ -32,27 +32,37 @@ class TelaFinal {
             imagemExibida.resize(width, height);
         }
 
-        PImage imgBotao = loadImage("images/imagemBotaoFinal.png");
+        PImage imgBotao = loadImage("images/imagemBotaoContinuar.png");
         botaoContinuar = new BotaoCircular(imgBotao);
         botaoContinuar.setTamanho(width/6);
         botaoContinuar.setXy(width/2, height * 0.8);
     }
 
-    void display() {
-        if (showVideo) {
-            imageMode(CENTER);
-            image(videoParabens, width/2, height/2, width, height);
-        } else {
-            background(imagemExibida);
-        }
+    void initVideo() {
+    if (showVideo) {
+      videoParabens.play();
+    }
+  }
+
+
+  void display() {
+    if (showVideo) {
+      if (videoParabens.time() <= videoParabens.duration()){
+        imageMode(CENTER);
+        image(videoParabens, width/2, height/2, width, height);
+      } else{
+        videoParabens.stop();
+        background(0);
         botaoContinuar.display();
+      }
+    } else {
+      background(imagemExibida);
+      botaoContinuar.display();
     }
+  }
 
-    void movieEvent(Movie m) {
-        m.read();
-    }
 
-    boolean clicouContinuar() {
-        return botaoContinuar.isClicked();
-    }
+  boolean clicouContinuar() {
+    return botaoContinuar.isClicked();
+  }
 }
