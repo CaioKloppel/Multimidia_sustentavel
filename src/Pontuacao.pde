@@ -12,4 +12,8 @@ class Pontuacao{
   public void somaPontuacao(int pontuacao){
     this.pontuacao += pontuacao;
   }
+  
+  public void reset(){
+    pontuacao = 0;
+  }
 }

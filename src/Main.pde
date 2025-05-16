@@ -1,3 +1,7 @@
+import processing.video.*;
+
+Movie movie = new Movie(this, "videos/parabens.mp4");
+
 Menu menu;
 //quiz
 QuizBackEnd quiz1;
@@ -40,6 +44,8 @@ PImage imagemBotaoQuestoes;
 TelaEnsinamento ensinamento;
 //tela de acerto
 TelaAcerto acerto;
+//tela final
+TelaFinal telaFinal;
 //fase do game
 int estado;
 
@@ -53,8 +59,8 @@ void setup(){
   imagemFundoPergunta3 = loadImage("Images/questao3.jpg");
   imagemFundoPergunta4 = loadImage("Images/questao1_animais.jpg");
   imagemFundoPergunta5 = loadImage("Images/questao2_animais.jpg");
-  imagemFundoPergunta6 = loadImage("Images/questao3_animais.jpg");
-  imagemFundoPergunta7 = loadImage("Images/questao4_animais.jpg");
+  imagemFundoPergunta6 = loadImage("Images/questao1_lixo.jpg");
+  imagemFundoPergunta7 = loadImage("Images/questao2_lixo.jpg");
   imagemFundoPergunta8 = loadImage("Images/questao1_reciclagem_do_lixo.jpg");
   imagemFundoPergunta9 = loadImage("Images/questao2_reciclagem_do_lixo.jpg");
   imagemFundoPergunta10 = loadImage("Images/questao3_reciclagem_do_lixo.jpg");
@@ -125,11 +131,11 @@ void setup(){
   pergunta6= new Pergunta(imagemFundoPergunta6, imagemBotaoQuestoes, pontuacao, quiz6, #333333);
   
   quiz7 = new QuizBackEnd(
-  "A) Porque o plástico, ao se\n decompor rapidamente, altera\n o pH da água e atrai\n predadores naturais.",
-  "B) Porque os animais utilizam\n o plástico como parte de sua\n alimentação habitual sem sofrer\n prejuízos.",
-  "C) Porque muitos animais\n confundem o plástico com\n alimento, o que pode causar\n sufocamento, intoxicação ou\n morte.",
-  "D) Porque o plástico aumenta\n a temperatura da água,\n dificultando a respiração dos\n peixes.",
-  "C) Porque muitos animais\n confundem o plástico com\n alimento, o que pode causar\n sufocamento, intoxicação ou\n morte."
+  "A) A poluição do ar\n contribui para a melhoria do\n sistema respiratório de aves e\n mamíferos.",
+  "B) O desmatamento amplia\n os habitats naturais dos\n animais, favorecendo a\n reprodução das espécies.",
+  "C) As mudanças climáticas\n afetam os ciclos de migração,\n alimentação e reprodução de\n várias espécies animais.",
+  "D) O aquecimento global\n tem permitido que os animais\n vivam mais tempo nas regiões\n tropicais.",
+  "C) As mudanças climáticas\n afetam os ciclos de migração,\n alimentação e reprodução de\n várias espécies animais."
   );
   pergunta7= new Pergunta(imagemFundoPergunta7, imagemBotaoQuestoes, pontuacao, quiz7, #333333);
   
@@ -159,6 +165,10 @@ void setup(){
   "D) Novos produtos de vidro,\n como garrafas e potes"
   );
   pergunta10= new Pergunta(imagemFundoPergunta10, imagemBotaoQuestoes, pontuacao, quiz10, #333333);
+  
+  movie = new Movie(this, "videos/parabens.mp4");
+  
+  telaFinal = new TelaFinal(pontuacao, movie);
   
   estado = 0;
 }
@@ -362,9 +372,12 @@ void draw(){
     break;
 
   case 21:
-    // Aqui você pode colocar o que acontece ao finalizar todas as perguntas
-    print(pontuacao.getPontuacao());
-    estado = 0;
-    break;
+    telaFinal.display();
+
+  if (telaFinal.clicouContinuar()) {
+    pontuacao.reset();    
+    estado = 0;           
+  }
+  break;
 }
 }

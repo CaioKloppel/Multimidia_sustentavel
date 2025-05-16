@@ -19,10 +19,6 @@ class TelaAcerto {
   }
   
   public boolean clicouContinuar() {
-       clicou = false;
-       if (botaoContinuar.isClicked()) {
-         clicou = true;
-       }
-       return clicou;
+       return botaoContinuar.isClicked();
     }
 }
