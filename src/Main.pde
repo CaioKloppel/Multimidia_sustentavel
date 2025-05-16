@@ -1,7 +1,3 @@
-import processing.video.*;
-
-Movie movie;
-
 Menu menu;
 //quiz
 QuizBackEnd quiz1;
@@ -74,7 +70,7 @@ void setup(){
   
   acerto = new TelaAcerto();
   
-  menu = new Menu(this);
+  menu = new Menu();
   
   quiz1 = new QuizBackEnd(
   "A) São obtidas de recursos\n que se regeneram \nrapidamente na natureza.",
@@ -166,8 +162,6 @@ void setup(){
   );
   pergunta10= new Pergunta(imagemFundoPergunta10, imagemBotaoQuestoes, pontuacao, quiz10, #333333);
   
-  movie = new Movie(this, "C:\\Users\\caiok\\Videos\\Videofinal.mp4");
-  
   estado = 0;
 }
 
@@ -175,7 +169,7 @@ void draw(){
   background(255); 
   switch (estado) {
   case 0:
-    menu.display();
+    menu.display(this);
     if (menu.clicouIniciar()) estado = 1;
     break;
 
@@ -371,21 +365,16 @@ void draw(){
 
   case 21:
     if (telaFinal ==null){
-    telaFinal = new TelaFinal(pontuacao, movie);
-    telaFinal.initVideo();
-    }
+      telaFinal = new TelaFinal(pontuacao);
+      }
   
     telaFinal.display();
 
-  if (telaFinal.clicouContinuar()) {
-    telaFinal = null;
-    pontuacao.reset();    
-    estado = 0;           
-    }
-  break;
+    if (telaFinal.clicouContinuar()) {
+      telaFinal = null;
+      pontuacao.reset();    
+      estado = 0;           
+      }
+    break;
   }
 }
-
-  void movieEvent(Movie m) {
-    m.read();
-  }

@@ -1,64 +1,44 @@
 class TelaFinal {
-    PImage imagemAlto, imagemMedio, imagemBaixo;
-    Movie videoParabens;
+    PImage imagem500, imagemAlto, imagemMedio, imagemBaixo;
     BotaoCircular botaoContinuar;
     Pontuacao pontuacao;
-    PImage imagemExibida;
+    PImage imagemExibida, imgBotao;
     boolean showVideo;
 
 
-    TelaFinal(Pontuacao pontuacaoUsuario, Movie video) {
+    TelaFinal(Pontuacao pontuacaoUsuario) {
         this.pontuacao = pontuacaoUsuario;
-        showVideo = (pontuacao.getPontuacao() == 500);
-
-        if (showVideo) {
         
-            videoParabens = video;
-            videoParabens.loop();
-            
+        imagem500 = loadImage("images/imagemFinal500.png");
+        imagemAlto = loadImage("images/imagemFinalMaxima.png");      
+        imagemMedio = loadImage("images/imagemFinalMedia.png");    
+        imagemBaixo = loadImage("images/imagemFinalBaixa.png");    
+
+        if (pontuacao.getPontuacao() == 500){
+            imagemExibida = imagem500;
+            imgBotao = loadImage("images/botaoFinal500.png");
+        } else if (pontuacao.getPontuacao() > 350) {
+            imagemExibida = imagemAlto;
+            imgBotao = loadImage("images/botaoFinalMaximo.png");
+        } else if (pontuacao.getPontuacao() > 200) {
+            imagemExibida = imagemMedio;
+            imgBotao = loadImage("images/botaoFinalMedio.png");
         } else {
-           
-            imagemAlto = loadImage("images/imagemFinalMaxima.png");      
-            imagemMedio = loadImage("images/imagemFinalMedia.png");    
-            imagemBaixo = loadImage("images/imagemFinalBaixa.png");    
-
-            if (pontuacao.getPontuacao() > 350) {
-                imagemExibida = imagemAlto;
-            } else if (pontuacao.getPontuacao() > 200) {
-                imagemExibida = imagemMedio;
-            } else {
-                imagemExibida = imagemBaixo;
-            }
-            imagemExibida.resize(width, height);
+            imagemExibida = imagemBaixo;
+            imgBotao = loadImage("images/botaoFinalBaixo.png");
         }
-
-        PImage imgBotao = loadImage("images/imagemBotaoContinuar.png");
+        imagemExibida.resize(width, height);
         botaoContinuar = new BotaoCircular(imgBotao);
-        botaoContinuar.setTamanho(width/6);
+        botaoContinuar.setTamanho(width/8);
         botaoContinuar.setXy(width/2, height * 0.8);
     }
 
-    void initVideo() {
-    if (showVideo) {
-      videoParabens.play();
-    }
-  }
+
 
 
   void display() {
-    if (showVideo) {
-      if (videoParabens.time() <= videoParabens.duration()){
-        imageMode(CENTER);
-        image(videoParabens, width/2, height/2, width, height);
-      } else{
-        videoParabens.stop();
-        background(0);
-        botaoContinuar.display();
-      }
-    } else {
       background(imagemExibida);
-      botaoContinuar.display();
-    }
+      botaoContinuar.display(); 
   }
 
 
