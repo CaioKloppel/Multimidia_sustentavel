@@ -1,5 +1,3 @@
-import ddf.minim.*;
-
 class TelaEnsinamento {
   private Minim minim;
   private AudioPlayer musicaEnsinamento;  
@@ -26,10 +24,10 @@ class TelaEnsinamento {
     int index = numeroQuestao - 1;
 
     if (!firstPlay) {
-      //minim = new Minim(parent);
-      ///musicaEnsinamento = minim.loadFile("somQuiz.mp3");
-      //musicaEnsinamento.loop();
-      // se quiser ajustar volume: musicaEnsinamento.setGain(-10);
+      minim = new Minim(parent);
+      musicaEnsinamento = minim.loadFile("somQuiz.mp3");
+      musicaEnsinamento.loop();
+      //se quiser ajustar volume: musicaEnsinamento.setGain(-10);
       firstPlay = true;
     }
 
@@ -42,7 +40,6 @@ class TelaEnsinamento {
     continuar.display();
   }
 
-//verifica o clique, e para a musica 
   public boolean clicouContinuar() {
     clicou = false;
     if (continuar.isClicked()) {
@@ -52,7 +49,7 @@ class TelaEnsinamento {
     return clicou;
   }
 
-  public void stopMusic() {
+  private void stopMusic() {
     if (musicaEnsinamento != null) {
       musicaEnsinamento.close();
       minim.stop();

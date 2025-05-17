@@ -1,5 +1,3 @@
-import ddf.minim.*;
-
 class TelaFinal {
     PImage imagem500, imagemAlto, imagemMedio, imagemBaixo;
     BotaoCircular botaoContinuar;
