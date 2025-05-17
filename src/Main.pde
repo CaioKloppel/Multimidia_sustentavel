@@ -174,7 +174,7 @@ void draw(){
     break;
 
   case 1:
-    pergunta1.display();
+    pergunta1.display(this);
     Boolean resposta1 = pergunta1.clicouResposta();
     if (resposta1 != null) {
       if (resposta1) estado = 22;
@@ -188,12 +188,12 @@ void draw(){
     break;
 
   case 2:
-    ensinamento.display(1);
+    ensinamento.display(1, this);
     if (ensinamento.clicouContinuar()) estado = 3;
     break;
 
   case 3:
-    pergunta2.display();
+    pergunta2.display(this); 
     Boolean resposta2 = pergunta2.clicouResposta();
     if (resposta2 != null) {
       if (resposta2) estado = 23;
@@ -207,12 +207,12 @@ void draw(){
     break;
 
   case 4:
-    ensinamento.display(2); 
+    ensinamento.display(2, this); 
     if (ensinamento.clicouContinuar()) estado = 5;
     break;
 
   case 5:
-    pergunta3.display();
+    pergunta3.display(this);
     Boolean resposta3 = pergunta3.clicouResposta();
     if (resposta3 != null) {
       if (resposta3) estado = 24;
@@ -226,12 +226,12 @@ void draw(){
     break;
 
   case 6:
-    ensinamento.display(3);
+    ensinamento.display(3, this);
     if (ensinamento.clicouContinuar()) estado = 7;
     break;
 
   case 7:
-    pergunta4.display();
+    pergunta4.display(this);
     Boolean resposta4 = pergunta4.clicouResposta();
     if (resposta4 != null) {
       if (resposta4) estado = 25;
@@ -245,12 +245,12 @@ void draw(){
     break;
 
   case 8:
-    ensinamento.display(4);
+    ensinamento.display(4, this);
     if (ensinamento.clicouContinuar()) estado = 9;
     break;
 
   case 9:
-    pergunta5.display();
+    pergunta5.display(this);
     Boolean resposta5 = pergunta5.clicouResposta();
     if (resposta5 != null) {
       if (resposta5) estado = 26;
@@ -264,12 +264,12 @@ void draw(){
     break;
 
   case 10:
-    ensinamento.display(5);
+    ensinamento.display(5, this);
     if (ensinamento.clicouContinuar()) estado = 11;
     break;
 
   case 11:
-    pergunta6.display();
+    pergunta6.display(this);
     Boolean resposta6 = pergunta6.clicouResposta();
     if (resposta6 != null) {
       if (resposta6) estado = 27;
@@ -283,12 +283,12 @@ void draw(){
     break;
 
   case 12:
-    ensinamento.display(6);
+    ensinamento.display(6, this);
     if (ensinamento.clicouContinuar()) estado = 13;
     break;
 
   case 13:
-    pergunta7.display();
+    pergunta7.display(this);
     Boolean resposta7 = pergunta7.clicouResposta();
     if (resposta7 != null) {
       if (resposta7) estado = 28;
@@ -302,12 +302,12 @@ void draw(){
     break;
 
   case 14:
-    ensinamento.display(7);
+    ensinamento.display(7, this);
     if (ensinamento.clicouContinuar()) estado = 15;
     break;
 
   case 15:
-    pergunta8.display();
+    pergunta8.display(this);
     Boolean resposta8 = pergunta8.clicouResposta();
     if (resposta8 != null) {
       if (resposta8) estado = 29;
@@ -321,12 +321,12 @@ void draw(){
     break;
 
   case 16:
-    ensinamento.display(8);
+    ensinamento.display(8, this);
     if (ensinamento.clicouContinuar()) estado = 17;
     break;
 
   case 17:
-    pergunta9.display();
+    pergunta9.display(this);
     Boolean resposta9 = pergunta9.clicouResposta();
     if (resposta9 != null) {
       if (resposta9) estado = 30;
@@ -340,12 +340,12 @@ void draw(){
     break;
 
   case 18:
-    ensinamento.display(9);
+    ensinamento.display(9, this);
     if (ensinamento.clicouContinuar()) estado = 19;
     break;
 
   case 19:
-    pergunta10.display();
+    pergunta10.display(this);
     Boolean resposta10 = pergunta10.clicouResposta();
     if (resposta10 != null) {
       if (resposta10) estado = 31;
@@ -359,13 +359,13 @@ void draw(){
     break;
 
   case 20:
-    ensinamento.display(10);
+    ensinamento.display(10, this);
     if (ensinamento.clicouContinuar()) estado = 21;
     break;
 
   case 21:
     if (telaFinal ==null){
-      telaFinal = new TelaFinal(pontuacao);
+      telaFinal = new TelaFinal(pontuacao, this);
       }
   
     telaFinal.display();

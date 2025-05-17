@@ -1,4 +1,14 @@
+import ddf.minim.*;
+
 class Pergunta{
+  // -------- Audio --------
+  private Minim minim;
+  private AudioPlayer quizMusic;
+  private AudioPlayer soundCorreto;
+  private AudioPlayer soundErrado;
+  private boolean firstPlay = false;
+
+  // -------- Campos existentes --------
   PImage imagemFundo;
   PImage imagemFundoBotao;
   Pontuacao pontuacaoAtual;
@@ -50,8 +60,19 @@ class Pergunta{
     botaoPergunta4.setCorTexto(corTexto);
   }
   
-  public void display(){
-    background(imagemFundo);
+  public void display(PApplet parent){
+    // inicia audio apenas na primeira exibição
+    if (!firstPlay) {
+      minim = new Minim(parent);
+      quizMusic = minim.loadFile("somQuiz.mp3");  
+      quizMusic.loop();  
+      soundCorreto = minim.loadFile("Correto.mp3");
+      soundErrado  = minim.loadFile("Errado.mp3");
+      firstPlay    = true;
+    }
+    
+    
+    parent.background(imagemFundo);
     botaoPergunta1.display();
     botaoPergunta2.display();
     botaoPergunta3.display();
@@ -61,25 +82,59 @@ class Pergunta{
   public Boolean clicouResposta() {
     clicou = null;
     if (botaoPergunta1.isClicked()) {
-      if (botaoPergunta1.getStringForma().equals(quiz.getAlternativaCorreta())){
-         pontuacao.somaPontuacao(50);
-      } clicou = botaoPergunta1.getStringForma().equals(quiz.getAlternativaCorreta());
+      clicou = botaoPergunta1.getStringForma().equals(quiz.getAlternativaCorreta());
+      if (clicou) {
+        pontuacaoAtual.somaPontuacao(50);
+        soundCorreto.rewind();
+        soundCorreto.play();
+      } else {
+        soundErrado.rewind();
+        soundErrado.play();
+      }
     }
-    else if (botaoPergunta2.isClicked()){
-      if (botaoPergunta2.getStringForma().equals(quiz.getAlternativaCorreta())){
-         pontuacao.somaPontuacao(50);
-      } clicou = botaoPergunta2.getStringForma().equals(quiz.getAlternativaCorreta());
+    else if (botaoPergunta2.isClicked()) {
+      clicou = botaoPergunta2.getStringForma().equals(quiz.getAlternativaCorreta());
+      if (clicou) {
+        pontuacaoAtual.somaPontuacao(50);
+        soundCorreto.rewind();
+        soundCorreto.play();
+      } else {
+        soundErrado.rewind();
+        soundErrado.play();
+      }
     }
-    else if (botaoPergunta3.isClicked()){
-      if (botaoPergunta3.getStringForma().equals(quiz.getAlternativaCorreta())){
-         pontuacao.somaPontuacao(50);
-      } clicou = botaoPergunta3.getStringForma().equals(quiz.getAlternativaCorreta());
+    else if (botaoPergunta3.isClicked()) {
+      clicou = botaoPergunta3.getStringForma().equals(quiz.getAlternativaCorreta());
+      if (clicou) {
+        pontuacaoAtual.somaPontuacao(50);
+        soundCorreto.rewind();
+        soundCorreto.play();
+      } else {
+        soundErrado.rewind();
+        soundErrado.play();
+      }
     }
-    else if (botaoPergunta4.isClicked()){
-      if (botaoPergunta4.getStringForma().equals(quiz.getAlternativaCorreta())){
-         pontuacao.somaPontuacao(50);
-      } clicou = botaoPergunta4.getStringForma().equals(quiz.getAlternativaCorreta());
+    else if (botaoPergunta4.isClicked()) {
+      clicou = botaoPergunta4.getStringForma().equals(quiz.getAlternativaCorreta());
+      if (clicou) {
+        pontuacaoAtual.somaPontuacao(50);
+        soundCorreto.rewind();
+        soundCorreto.play();
+      } else {
+        soundErrado.rewind();
+        soundErrado.play();
+      }
     }
+    // para só a música de fundo, mantendo efeitos ativos
+    if (clicou != null) stopBackgroundMusic();
     return clicou;
+  }
+
+  // para apenas a música de fundo
+  public void stopBackgroundMusic() {
+    if (quizMusic != null) {
+      quizMusic.close();
+      firstPlay = false;
+    }
   }
 }
