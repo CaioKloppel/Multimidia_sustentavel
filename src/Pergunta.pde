@@ -47,10 +47,10 @@ class Pergunta{
     botaoPergunta3.setStringForma(quiz.getAlternativaC());
     botaoPergunta4.setStringForma(quiz.getAlternativaD());
     
-    if (botaoPergunta1.getStringForma().length() < 90) botaoPergunta1.setFonte("Comic Sans MS", 32); else botaoPergunta1.setFonte("Comic Sans MS", 23);
-    if (botaoPergunta2.getStringForma().length() < 90) botaoPergunta2.setFonte("Comic Sans MS", 32); else botaoPergunta2.setFonte("Comic Sans MS", 23);
-    if (botaoPergunta3.getStringForma().length() < 90) botaoPergunta3.setFonte("Comic Sans MS", 32); else botaoPergunta3.setFonte("Comic Sans MS", 23);
-    if (botaoPergunta4.getStringForma().length() < 90) botaoPergunta4.setFonte("Comic Sans MS", 32); else botaoPergunta4.setFonte("Comic Sans MS", 23);
+    if (botaoPergunta1.getStringForma().length() < 90) botaoPergunta1.setFonte("Comic Sans MS", width/60); else botaoPergunta1.setFonte("Comic Sans MS", width/83);
+    if (botaoPergunta2.getStringForma().length() < 90) botaoPergunta2.setFonte("Comic Sans MS", width/60); else botaoPergunta2.setFonte("Comic Sans MS", width/83);
+    if (botaoPergunta3.getStringForma().length() < 90) botaoPergunta3.setFonte("Comic Sans MS", width/60); else botaoPergunta3.setFonte("Comic Sans MS", width/83);
+    if (botaoPergunta4.getStringForma().length() < 90) botaoPergunta4.setFonte("Comic Sans MS", width/60); else botaoPergunta4.setFonte("Comic Sans MS", width/83);
     
     botaoPergunta1.setCorTexto(corTexto);
     botaoPergunta2.setCorTexto(corTexto);

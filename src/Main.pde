@@ -111,9 +111,9 @@ void setup(){
   quiz5 = new QuizBackEnd(
   "A) O petróleo forma uma\n camada protetora na água que\n ajuda a conservar o calor para\n os organismos marinhos.",
   "B) O petróleo se dissolve\n rapidamente na água do mar,\n sem causar danos aos seres\n vivos.",
-  "C) O petróleo adere ao corpo\n dos animais, como aves e\n mamíferos marinhos,\n dificultando a locomoção,\n respiração e regulação térmica,\n além de contaminar a água e\n os alimentos.",
+  "C) O petróleo adere ao corpo\n dos animais, como aves e\n mamíferos marinhos,\n dificultando a locomoção,\n respiração e regulação térmica.",
   "D) A presença de petróleo no\n mar reduz a salinidade da água,\n o que é benéfico para a maioria\n das espécies.",
-  "C) O petróleo adere ao corpo\n dos animais, como aves e\n mamíferos marinhos,\n dificultando a locomoção,\n respiração e regulação térmica,\n além de contaminar a água e\n os alimentos."
+  "C) O petróleo adere ao corpo\n dos animais, como aves e\n mamíferos marinhos,\n dificultando a locomoção,\n respiração e regulação térmica."
   );
   pergunta5= new Pergunta(imagemFundoPergunta5, imagemBotaoQuestoes, pontuacao, quiz5, #333333);
   
