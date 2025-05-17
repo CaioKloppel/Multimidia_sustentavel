@@ -6,6 +6,7 @@ class TelaFinal {
     AudioPlayer soundFinal;
     Minim minim;
     boolean firstPlay = false;
+    boolean continuarClicado = false;
 
     TelaFinal(Pontuacao pontuacaoUsuario, PApplet parent) {
         this.pontuacao = pontuacaoUsuario;
@@ -24,6 +25,7 @@ class TelaFinal {
             imagemExibida = imagemAlto;
             imgBotao = loadImage("images/botaoFinalMaximo.png");
             soundFinal = minim.loadFile("imagemMaximaSound.mp3");
+            soundFinal.setGain(+160);
         } else if (pontuacao.getPontuacao() > 200) {
             imagemExibida = imagemMedio;
             imgBotao = loadImage("images/botaoFinalMedio.png");
@@ -47,10 +49,15 @@ class TelaFinal {
             soundFinal.play();
             firstPlay = true;
         }
+
+        if (botaoContinuar.isClicked() && !continuarClicado) {
+            stopSound();
+            continuarClicado = true;
+        }
     }
 
     boolean clicouContinuar() {
-        return botaoContinuar.isClicked();
+        return continuarClicado;
     }
 
     void stopSound() {

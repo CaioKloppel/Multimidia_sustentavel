@@ -2,6 +2,8 @@ class TelaEnsinamento {
   private Minim minim;
   private AudioPlayer musicaEnsinamento;  
   private boolean firstPlay = false;
+  private int tempoInicial = 0;
+  private final int DELAY_MUSICA = 1000; // 1 segundo de delay
 
   PImage[] imagensEnsinamento = new PImage[10];
   PImage imagemBotao;
@@ -24,11 +26,14 @@ class TelaEnsinamento {
     int index = numeroQuestao - 1;
 
     if (!firstPlay) {
-      minim = new Minim(parent);
-      musicaEnsinamento = minim.loadFile("somQuiz.mp3");
-      musicaEnsinamento.loop();
-      //se quiser ajustar volume: musicaEnsinamento.setGain(-10);
+      tempoInicial = millis();  //tempo inicial da musica
       firstPlay = true;
+    }
+
+    if (millis() - tempoInicial >= DELAY_MUSICA && musicaEnsinamento == null) {
+      minim = new Minim(parent);
+      musicaEnsinamento = minim.loadFile("musicaEnsinamento.mp3");  
+      musicaEnsinamento.loop();
     }
 
     if (index >= 0 && index < imagensEnsinamento.length) {
@@ -53,6 +58,7 @@ class TelaEnsinamento {
     if (musicaEnsinamento != null) {
       musicaEnsinamento.close();
       minim.stop();
+      musicaEnsinamento = null;
       firstPlay = false;
     }
   }

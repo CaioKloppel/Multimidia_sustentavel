@@ -1,14 +1,12 @@
 import ddf.minim.*;
 
 class Pergunta{
-  // -------- Audio --------
   private Minim minim;
   private AudioPlayer quizMusic;
   private AudioPlayer soundCorreto;
   private AudioPlayer soundErrado;
   private boolean firstPlay = false;
 
-  // -------- Campos existentes --------
   PImage imagemFundo;
   PImage imagemFundoBotao;
   Pontuacao pontuacaoAtual;
