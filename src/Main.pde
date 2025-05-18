@@ -103,8 +103,8 @@ void setup(){
   "A) Promovem o aumento da\n biodiversidade ao criar novos\n ambientes para os animais\n viverem.",
   "B) Reduzem o risco de\n desastres ambientais, como\n vazamentos e poluição\n atmosférica.",
   "C) Contribuem para o\n equilíbrio térmico do planeta,\n beneficiando a adaptação de\n espécies.",
-  "D) Provocam poluição do ar,\n contaminação da água e solo,\n além de contribuírem para as\n mudanças climáticas que\n afetam diretamente os habitats\n e a sobrevivência de muitas\n espécies.",
-  "D) Provocam poluição do ar,\n contaminação da água e solo,\n além de contribuírem para as\n mudanças climáticas que\n afetam diretamente os habitats\n e a sobrevivência de muitas\n espécies."
+  "D) Contribuem para as\n mudanças climáticas que\n afetam diretamente os habitats\n e a sobrevivência de muitas\n espécies.",
+  "D) Contribuem para as\n mudanças climáticas que\n afetam diretamente os habitats\n e a sobrevivência de muitas\n espécies."
   );
   pergunta4= new Pergunta(imagemFundoPergunta4, imagemBotaoQuestoes, pontuacao, quiz4, #333333);
   
@@ -120,7 +120,7 @@ void setup(){
   quiz6 = new QuizBackEnd(
   "A) Eles passam a evitar\n totalmente as regiões onde há\n lixo, mantendo-se em\n segurança.",
   "B) Os resíduos sólidos ajudam\n a formar novos habitats\n naturais, beneficiando a fauna\n marinha.",
-  "C) Os plásticos descartados se\n transformam rapidamente em\n nutrientes para os peixes e\n corais.",
+  "C) Os plásticos descartados são\n rapidamente absorvidos\n pelo ambiente.",
   "D) Animais marinhos podem\n confundir plásticos com\n alimento, ingerindo-os e\n sofrendo problemas de saúde\n ou até a morte.",
   "D) Animais marinhos podem\n confundir plásticos com\n alimento, ingerindo-os e\n sofrendo problemas de saúde\n ou até a morte."
   );
